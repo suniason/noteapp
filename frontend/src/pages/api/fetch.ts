@@ -1,5 +1,5 @@
-import { Note } from '../model/note'
-import { User } from '../model/user'
+import { Note } from '../../model/note'
+import { User } from '../../model/user'
 
 async function fetchData(input: RequestInfo, init?: RequestInit) {
   const response = await fetch(input, init)

@@ -1,26 +1,31 @@
-import React, { useRef } from 'react'
-import Image from 'next/image'
-import * as NotesApi from '../api/fetch'
+import React, { useContext, useRef } from 'react'
+import * as NotesApi from '../pages/api/fetch'
 import { Note } from '../model/note'
+import NoteContext from '../context/noteContext'
 
 interface Props {
-  onSave: (note: Note) => void
+  showupdate: boolean
+  note: Note
+  clicked: (value: boolean) => void
 }
 
-const AddNoteDialog: React.FC<Props> = ({ onSave }: Props) => {
-  const [showDialog, setShowDialog] = React.useState<boolean>(false)
-  const [title, setTitle] = React.useState<string>('')
-  const [text, setText] = React.useState<string>('')
+const UpdateNoteDialog: React.FC<Props> = ({ showupdate, note, clicked }: Props) => {
+  const { _id: id, text, title } = note
+  const [updateDialog, setUpdateDialog] = React.useState<boolean>(showupdate)
+  const [newTitle, setNewTitle] = React.useState<string>(title)
+  const [newText, setNewText] = React.useState<string>(text)
   const [isblank, setIsblank] = React.useState<boolean>(false)
   const titleRef = useRef<HTMLInputElement>(null)
+  const context = useContext(NoteContext)
 
-  const onAdd = () => {
-    async function addNote() {
+  const updateClicked = () => {
+    async function updateNote() {
       try {
-        if (title) {
-          const notes = await NotesApi.createNotes({ title, text })
-          onSave(notes)
-          setShowDialog(false)
+        if (newTitle) {
+          const newNote = await NotesApi.updateNotes(id, { title: newTitle, text: newText })
+          context.setNotes(context.notes.map(prev => (prev._id === id ? newNote : prev)))
+          console.log(newNote)
+          clicked(false)
         } else {
           if (titleRef.current) {
             titleRef.current.style.outline = '1px solid red'
@@ -38,33 +43,26 @@ const AddNoteDialog: React.FC<Props> = ({ onSave }: Props) => {
         alert(error)
       }
     }
-    addNote()
+    updateNote()
   }
-
   return (
     <div>
-      <button
-        className='flex justify-center items-center fixed cursor-pointer bottom-10 right-10 bg-white w-[3rem] h-[3rem] hover:bg-slate-300'
-        onClick={() => setShowDialog(true)}
-      >
-        <Image src={'/plus.svg'} width={20} height={20} alt={''}></Image>
-      </button>
-      {showDialog ? (
+      {updateDialog ? (
         <div>
-          <div className='fixed flex justify-center items-center overflow-x-hidden overflow-y-auto w-full h-full inset-0'>
+          <div className='fixed flex justify-center items-center overflow-x-hidden overflow-y-auto w-full h-full inset-0 z-100'>
             <div className='bg-slate-700  w-[40%] h-[80vh] flex relative overflow-hidden'>
               <div className='w-full mx-16 text-white'>
                 <div className='mt-8 flex justify-center items-center font-bold text-3xl'>
-                  New Note
+                  Update Note
                 </div>
                 <div className='mt-5'>
                   <div className='my-2 text-lg font-semibold'>Title:</div>
                   <input
                     ref={titleRef}
                     className='w-[98%]  py-[.3rem] px-[.4rem] bg-slate-500'
-                    placeholder='Write your title here...'
                     type='text'
-                    onChange={e => setTitle(e.target.value)}
+                    value={newTitle}
+                    onChange={e => setNewTitle(e.target.value)}
                   ></input>
                   {isblank ? (
                     <div className='text-red-500 text-[.8rem]'>This field is required</div>
@@ -74,23 +72,29 @@ const AddNoteDialog: React.FC<Props> = ({ onSave }: Props) => {
                   <div className='my-2 text-lg font-semibold'>Text:</div>
                   <textarea
                     className='w-[98%]  py-[.3rem] px-[.4rem] bg-slate-500 h-[30vh]'
+                    value={newText}
                     placeholder='Write your text here...'
-                    onChange={e => setText(e.target.value)}
+                    onChange={e => setNewText(e.target.value)}
                   ></textarea>
                 </div>
               </div>
               <div className='absolute bottom-0 h-15 p-[.1rem] flex justify-center w-full bg-slate-800'>
                 <button
                   className='bg-red-500 px-7 py-1 m-3 font-semibold '
-                  onClick={() => setShowDialog(false)}
+                  onClick={() => {
+                    setUpdateDialog(false)
+                    clicked(false)
+                  }}
                 >
                   Close
                 </button>
                 <button
-                  className='bg-green-500 px-7 py-1 m-3 font-semibold'
-                  onClick={() => onAdd()}
+                  className='bg-blue-500 px-7 py-1 m-3 font-semibold '
+                  onClick={() => {
+                    updateClicked()
+                  }}
                 >
-                  Add
+                  Update
                 </button>
               </div>
             </div>
@@ -101,4 +105,4 @@ const AddNoteDialog: React.FC<Props> = ({ onSave }: Props) => {
   )
 }
 
-export default AddNoteDialog
+export default UpdateNoteDialog

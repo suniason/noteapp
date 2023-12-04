@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { User } from '../model/user'
-import * as NotesApi from '../api/fetch'
+import * as NotesApi from '../pages/api/fetch'
 
 interface Props {
   loggedInUser: User | null

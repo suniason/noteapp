@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Legends from './components/legends'
+import Legends from '../components/legends'
 
 export default function Home() {
   return (

@@ -1,8 +1,8 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import Navbar from './components/navbar'
+import Navbar from '../components/navbar'
 import React, { useEffect } from 'react'
-import { User } from './model/user'
+import { User } from '../model/user'
 import * as NotesApi from './api/fetch'
 
 export default function App({ Component, pageProps }: AppProps) {

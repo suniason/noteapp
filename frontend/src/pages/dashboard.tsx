@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import React, { Suspense, useEffect, useState } from 'react'
-import { Note } from './model/note'
-import NoteCard from './components/note'
+import { Note } from '../model/note'
+import NoteCard from '../components/note'
 import * as NotesApi from './api/fetch'
-import AddNoteDialog from './components/addnotedialog'
-import NoteContext from './context/noteContext'
-import Loading from './components/loading'
+import AddNoteDialog from '../components/addnotedialog'
+import NoteContext from '../context/noteContext'
+import Loading from '../components/loading'
 
 const Dashboard: React.FC = () => {
   const [notes, setNotes] = useState<Note[]>([])

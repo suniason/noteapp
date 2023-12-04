@@ -1,5 +1,5 @@
 import React from 'react'
-import Legends from './components/legends'
+import Legends from '../components/legends'
 
 const Legend: React.FC = () => {
   return (

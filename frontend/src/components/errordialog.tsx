@@ -1,5 +1,5 @@
 import React from 'react'
-import * as NotesApi from '../api/fetch'
+import * as NotesApi from '../pages/api/fetch'
 
 interface Props {
   stat: boolean

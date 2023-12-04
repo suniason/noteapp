@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import * as NotesApi from '../api/fetch'
+import * as NotesApi from '../pages/api/fetch'
 import { Note } from '../model/note'
 import NoteContext from '../context/noteContext'
 
