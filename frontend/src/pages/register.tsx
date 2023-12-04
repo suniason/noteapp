@@ -54,14 +54,14 @@ const SignUp: React.FC = () => {
               <div>
                 <div className='my-2 text-lg font-semibold text-white'>Username</div>
                 <input
-                  className='w-[98%] rounded-lg py-[.3rem] px-[.4rem] bg-slate-400'
+                  className='w-[98%]  py-[.3rem] px-[.4rem] bg-slate-400'
                   type='text'
                   onChange={e => setUsername(e.target.value)}
                 ></input>
               </div>
               <div className='my-2 text-lg font-semibold text-white'>Email</div>
               <input
-                className='w-[98%] rounded-lg py-[.3rem] px-[.4rem] bg-slate-400'
+                className='w-[98%]  py-[.3rem] px-[.4rem] bg-slate-400'
                 type='email'
                 onChange={e => setEmail(e.target.value)}
               ></input>
@@ -69,7 +69,7 @@ const SignUp: React.FC = () => {
             <div>
               <div className='my-2 text-lg font-semibold text-white'>Password</div>
               <input
-                className='w-[98%] rounded-lg py-[.3rem] px-[.4rem] bg-slate-400'
+                className='w-[98%]  py-[.3rem] px-[.4rem] bg-slate-400'
                 type='password'
                 onChange={e => setPassword(e.target.value)}
               ></input>
@@ -78,7 +78,7 @@ const SignUp: React.FC = () => {
             <div>
               <div className='my-2 text-lg font-semibold text-white'>Confirm Password</div>
               <input
-                className='w-[98%] rounded-lg py-[.3rem] px-[.4rem] bg-slate-400'
+                className='w-[98%]  py-[.3rem] px-[.4rem] bg-slate-400'
                 type='password'
                 onChange={e => setCheckPassword(e.target.value)}
               ></input>
@@ -86,7 +86,7 @@ const SignUp: React.FC = () => {
             {checkErr ? <div className='text-red-500 text-[.7rem] mt-5'>{errMessage}</div> : null}
             <div className='flex justify-center items-center m-10'>
               <button
-                className='bg-white px-7 py-1 font-semibold rounded-xl '
+                className='bg-white px-7 py-1 font-semibold  '
                 onClick={registerClicked}
               >
                 REGISTER

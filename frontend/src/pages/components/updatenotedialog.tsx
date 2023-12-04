@@ -50,7 +50,7 @@ const UpdateNoteDialog: React.FC<Props> = ({ showupdate, note, clicked }: Props)
       {updateDialog ? (
         <div>
           <div className='fixed flex justify-center items-center overflow-x-hidden overflow-y-auto w-full h-full inset-0 z-100'>
-            <div className='bg-slate-700 rounded-xl w-[40%] h-[80vh] flex relative overflow-hidden'>
+            <div className='bg-slate-700  w-[40%] h-[80vh] flex relative overflow-hidden'>
               <div className='w-full mx-16 text-white'>
                 <div className='mt-8 flex justify-center items-center font-bold text-3xl'>
                   Update Note
@@ -59,7 +59,7 @@ const UpdateNoteDialog: React.FC<Props> = ({ showupdate, note, clicked }: Props)
                   <div className='my-2 text-lg font-semibold'>Title:</div>
                   <input
                     ref={titleRef}
-                    className='w-[98%] rounded-lg py-[.3rem] px-[.4rem] bg-slate-500'
+                    className='w-[98%]  py-[.3rem] px-[.4rem] bg-slate-500'
                     type='text'
                     value={newTitle}
                     onChange={e => setNewTitle(e.target.value)}
@@ -71,7 +71,7 @@ const UpdateNoteDialog: React.FC<Props> = ({ showupdate, note, clicked }: Props)
                 <div className='mt-5'>
                   <div className='my-2 text-lg font-semibold'>Text:</div>
                   <textarea
-                    className='w-[98%] rounded-lg py-[.3rem] px-[.4rem] bg-slate-500 h-[30vh]'
+                    className='w-[98%]  py-[.3rem] px-[.4rem] bg-slate-500 h-[30vh]'
                     value={newText}
                     placeholder='Write your text here...'
                     onChange={e => setNewText(e.target.value)}
@@ -80,7 +80,7 @@ const UpdateNoteDialog: React.FC<Props> = ({ showupdate, note, clicked }: Props)
               </div>
               <div className='absolute bottom-0 h-15 p-[.1rem] flex justify-center w-full bg-slate-800'>
                 <button
-                  className='bg-red-500 px-7 py-1 m-3 font-semibold rounded-xl'
+                  className='bg-red-500 px-7 py-1 m-3 font-semibold '
                   onClick={() => {
                     setUpdateDialog(false)
                     clicked(false)
@@ -89,7 +89,7 @@ const UpdateNoteDialog: React.FC<Props> = ({ showupdate, note, clicked }: Props)
                   Close
                 </button>
                 <button
-                  className='bg-blue-500 px-7 py-1 m-3 font-semibold rounded-xl'
+                  className='bg-blue-500 px-7 py-1 m-3 font-semibold '
                   onClick={() => {
                     updateClicked()
                   }}

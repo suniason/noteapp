@@ -44,7 +44,7 @@ const AddNoteDialog: React.FC<Props> = ({ onSave }: Props) => {
   return (
     <div>
       <button
-        className='flex justify-center items-center fixed cursor-pointer bottom-10 right-10 bg-white w-[3rem] h-[3rem] rounded-full hover:bg-slate-300'
+        className='flex justify-center items-center fixed cursor-pointer bottom-10 right-10 bg-white w-[3rem] h-[3rem] hover:bg-slate-300'
         onClick={() => setShowDialog(true)}
       >
         <Image src={'/plus.svg'} width={20} height={20} alt={''}></Image>
@@ -52,7 +52,7 @@ const AddNoteDialog: React.FC<Props> = ({ onSave }: Props) => {
       {showDialog ? (
         <div>
           <div className='fixed flex justify-center items-center overflow-x-hidden overflow-y-auto w-full h-full inset-0'>
-            <div className='bg-slate-700 rounded-xl w-[40%] h-[80vh] flex relative overflow-hidden'>
+            <div className='bg-slate-700  w-[40%] h-[80vh] flex relative overflow-hidden'>
               <div className='w-full mx-16 text-white'>
                 <div className='mt-8 flex justify-center items-center font-bold text-3xl'>
                   New Note
@@ -61,7 +61,7 @@ const AddNoteDialog: React.FC<Props> = ({ onSave }: Props) => {
                   <div className='my-2 text-lg font-semibold'>Title:</div>
                   <input
                     ref={titleRef}
-                    className='w-[98%] rounded-lg py-[.3rem] px-[.4rem] bg-slate-500'
+                    className='w-[98%]  py-[.3rem] px-[.4rem] bg-slate-500'
                     placeholder='Write your title here...'
                     type='text'
                     onChange={e => setTitle(e.target.value)}
@@ -73,7 +73,7 @@ const AddNoteDialog: React.FC<Props> = ({ onSave }: Props) => {
                 <div className='mt-5'>
                   <div className='my-2 text-lg font-semibold'>Text:</div>
                   <textarea
-                    className='w-[98%] rounded-lg py-[.3rem] px-[.4rem] bg-slate-500 h-[30vh]'
+                    className='w-[98%]  py-[.3rem] px-[.4rem] bg-slate-500 h-[30vh]'
                     placeholder='Write your text here...'
                     onChange={e => setText(e.target.value)}
                   ></textarea>
@@ -81,13 +81,13 @@ const AddNoteDialog: React.FC<Props> = ({ onSave }: Props) => {
               </div>
               <div className='absolute bottom-0 h-15 p-[.1rem] flex justify-center w-full bg-slate-800'>
                 <button
-                  className='bg-red-500 px-7 py-1 m-3 font-semibold rounded-xl'
+                  className='bg-red-500 px-7 py-1 m-3 font-semibold '
                   onClick={() => setShowDialog(false)}
                 >
                   Close
                 </button>
                 <button
-                  className='bg-green-500 px-7 py-1 m-3 font-semibold rounded-xl'
+                  className='bg-green-500 px-7 py-1 m-3 font-semibold'
                   onClick={() => onAdd()}
                 >
                   Add

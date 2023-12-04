@@ -31,13 +31,13 @@ const ConfirmDelete: React.FC<Props> = ({ showdelete, note, clicked }: Props) =>
     <div>
       {deleteDialog ? (
         <div className='fixed flex justify-center items-center overflow-x-hidden overflow-y-auto w-full h-full inset-0 z-100'>
-          <div className='bg-slate-800 rounded-xl w-[30%] h-[25vh] flex justify-center relative overflow-hidden'>
+          <div className='bg-slate-800  w-[30%] h-[25vh] flex justify-center relative overflow-hidden'>
             <div className='text-white font-semibold flex items-center h-[15vh]'>
               Are you sure you want to delete note?
             </div>
             <div className='absolute bottom-0 h-[12vh] p-2 flex justify-center items-center w-full bg-slate-800'>
               <button
-                className='bg-red-500 px-7 py-2 m-3 font-semibold rounded-xl'
+                className='bg-red-500 px-7 py-2 m-3 font-semibold '
                 onClick={() => {
                   setDeleteDialog(false)
                   clicked(false)
@@ -46,7 +46,7 @@ const ConfirmDelete: React.FC<Props> = ({ showdelete, note, clicked }: Props) =>
                 Close
               </button>
               <button
-                className='bg-black text-white px-7 py-2 m-3 font-semibold rounded-xl'
+                className='bg-black text-white px-7 py-2 m-3 font-semibold '
                 onClick={() => confirmClicked()}
               >
                 Confirm

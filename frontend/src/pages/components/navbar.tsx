@@ -34,18 +34,18 @@ const Navbar: React.FC<Props> = ({ loggedInUser, onLogout }: Props) => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
-                <button className='rounded-full bg-white py-1 px-8 mx-2'>
+                <button className=' bg-white py-1 px-8 mx-2'>
                   {loggedInUser?.username}
                 </button>
                 {isHovered ? (
                   <ul className='absolute left-0 top-[100%] text-white z-50'>
                     <Link href={'/dashboard'}>
-                      <li className='cursor-pointer px-10 py-2 bg-slate-900 hover:bg-slate-800 rounded-t-lg'>
+                      <li className='cursor-pointer px-10 py-2 bg-slate-900 hover:bg-slate-800'>
                         Dashboard
                       </li>
                     </Link>
                     <li
-                      className='cursor-pointer px-10 py-2 bg-slate-900 hover:bg-slate-800 rounded-b-lg'
+                      className='cursor-pointer px-10 py-2 bg-slate-900 hover:bg-slate-800'
                       onClick={() => {
                         logout()
                       }}
@@ -59,10 +59,10 @@ const Navbar: React.FC<Props> = ({ loggedInUser, onLogout }: Props) => {
           ) : (
             <div className='flex justify-end w-1/2 text-black font-semibold'>
               <Link href='/login'>
-                <button className='rounded-full bg-white py-1 px-3 mx-2'>Log In</button>
+                <button className=' bg-white py-1 px-3 mx-2'>Log In</button>
               </Link>
               <Link href='/register'>
-                <button className='rounded-full bg-slate-700 py-1 px-3 mx-2 text-white'>
+                <button className=' bg-slate-700 py-1 px-3 mx-2 text-white'>
                   Register
                 </button>
               </Link>

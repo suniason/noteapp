@@ -31,7 +31,7 @@ const ShowNoteDialog: React.FC<Props> = ({ stat, note, clicked }: Props) => {
       {showDialog ? (
         <div>
           <div className='fixed flex justify-center items-center overflow-x-hidden overflow-y-auto w-full h-full inset-0 z-50'>
-            <div className='bg-slate-700 rounded-xl w-[40%] h-[70vh] flex relative overflow-hidden'>
+            <div className='bg-slate-700  w-[40%] h-[70vh] flex relative overflow-hidden'>
               <div className='w-full mx-16 text-white'>
                 <div className='mt-8 flex justify-center items-center font-semibold text-2xl'>
                   {title}
@@ -42,7 +42,7 @@ const ShowNoteDialog: React.FC<Props> = ({ stat, note, clicked }: Props) => {
               </div>
               <div className='absolute bottom-0 h-[12vh] p-2 flex justify-center items-center w-full bg-slate-800'>
                 <button
-                  className='bg-red-500 px-7 py-2 m-3 font-semibold rounded-xl'
+                  className='bg-red-500 px-7 py-2 m-3 font-semibold '
                   onClick={() => {
                     setShowDialog(false)
                     clicked(false)
@@ -51,13 +51,13 @@ const ShowNoteDialog: React.FC<Props> = ({ stat, note, clicked }: Props) => {
                   Close
                 </button>
                 <button
-                  className='bg-blue-500 px-7 py-2 m-3 font-semibold rounded-xl'
+                  className='bg-blue-500 px-7 py-2 m-3 font-semibold '
                   onClick={() => setUpdateClicked(true)}
                 >
                   <Image src={'/update.svg'} width={30} height={20} alt=''></Image>
                 </button>
                 <button
-                  className='bg-black px-7 py-2 m-3 font-semibold rounded-xl'
+                  className='bg-black px-7 py-2 m-3 font-semibold '
                   onClick={() => {
                     setDeleteClicked(true)
                   }}

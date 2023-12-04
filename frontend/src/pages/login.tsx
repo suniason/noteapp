@@ -44,7 +44,7 @@ const Login: React.FC = () => {
             <div>
               <div className='my-2 text-lg font-semibold text-white'>Email</div>
               <input
-                className='w-[98%] rounded-lg py-[.3rem] px-[.4rem] bg-slate-400'
+                className='w-[98%] py-2 px-5 bg-slate-400'
                 type='text'
                 onChange={e => setEmail(e.target.value)}
               ></input>
@@ -52,7 +52,7 @@ const Login: React.FC = () => {
             <div>
               <div className='my-2 text-lg font-semibold text-white'>Password</div>
               <input
-                className='w-[98%] rounded-lg py-[.3rem] px-[.4rem] bg-slate-400'
+                className='w-[98%] py-[.3rem] px-[.4rem] bg-slate-400'
                 type='password'
                 onChange={e => setPassword(e.target.value)}
               ></input>
@@ -62,7 +62,7 @@ const Login: React.FC = () => {
             ) : null}
             <div className='flex justify-center items-center m-10'>
               <button
-                className='bg-white px-7 py-1 font-semibold rounded-xl '
+                className='bg-white px-7 py-1 font-semibold '
                 onClick={loginClicked}
               >
                 LOG IN

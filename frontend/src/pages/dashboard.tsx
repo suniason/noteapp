@@ -43,19 +43,19 @@ const Dashboard: React.FC = () => {
         <Head>
           <title>Notes App | Dashboard</title>
         </Head>
-        <div className='flex w-full min-h-[100vh] justify-center'>
-          <div className='m-10 bg-slate-950 min-h-full p-10 rounded-2xl w-[80%] flex justify-center'>
-            <div className='w-full'>
+        <div className='flex w-full min-h-[100dvh] justify-center'>
+          <div className='m-10 bg-slate-950 min-h-full p-10 w-[80%] flex justify-center'>
+            <div className='w-full min-h-fit'>
               <div className='text-white flex justify-start mb-5 text-[2.5rem] font-bold w-full'>
                 Notes
               </div>
-              <Suspense fallback={<Loading />}>
-                <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 w-full'>
+              <div className='grid grid-cols-3 gap-3'>
                   {notes?.map((note, key) => (
-                    <NoteCard key={key} note={note} color={colorPicker()} />
-                  ))}
-                </div>
-              </Suspense>
+                    <div key={key}>
+                      <NoteCard key={key} note={note} color={colorPicker()} />
+                    </div>
+                    ))}
+              </div>
             </div>
           </div>
           <Link href='/'>

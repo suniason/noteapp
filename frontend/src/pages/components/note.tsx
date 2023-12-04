@@ -32,10 +32,10 @@ const NoteCard: React.FC<NoteCardProps> = ({ note, color }: NoteCardProps) => {
   }
 
   return (
-    <div>
-      <div className='hover:opacity-80 cursor-pointer ' onClick={() => setClicked(true)}>
+    <>
+      <div className='box-border hover:opacity-80 cursor-pointer ' onClick={() => setClicked(true)}>
         <div
-          className={` relative w-[18rem] p-5 rounded-t-lg h-[15rem] overflow-hidden  
+          className={` relative w-[18rem] p-3    
 	  ${colorVariants[color as keyof typeof colorVariants]}`}
         >
           <div className='font-extrabold text-center text-[1.2rem]'>{title}</div>
@@ -43,7 +43,7 @@ const NoteCard: React.FC<NoteCardProps> = ({ note, color }: NoteCardProps) => {
         </div>
         <div>
           <div
-            className={`flex items-center text-[0.7rem] ps-5 relative w-[18rem] rounded-b-lg h-[2rem] overflow-hidden opacity-90
+            className={`flex items-center text-[0.7rem] ps-5 relative w-[18rem] h-[2rem] overflow-hidden opacity-90
 		  ${colorVariants[color as keyof typeof colorVariants]}`}
           >
             {createdUpdated}
@@ -53,7 +53,7 @@ const NoteCard: React.FC<NoteCardProps> = ({ note, color }: NoteCardProps) => {
       <div>
         {clicked ? <ShowNoteDialog stat={clicked} note={note} clicked={checkClick} /> : null}
       </div>
-    </div>
+      </>
   )
 }
 
